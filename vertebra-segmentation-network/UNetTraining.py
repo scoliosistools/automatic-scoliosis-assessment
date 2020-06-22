@@ -90,6 +90,6 @@ model.summary()
 
 checkpointer = ModelCheckpoint("/content/drive/My Drive/GitHub/automatic-scoliosis-assessment/models/{}".format(NAME), verbose=1, save_best_only=True, save_weights_only=False)
 
-model.fit(X, Y, batch_size=64, epochs=500, validation_split=0.15, callbacks=[tensorboard, checkpointer])
+model.fit(X, Y, batch_size=64, epochs=200, validation_split=0.15, callbacks=[tensorboard, checkpointer])
 
 del X, Y

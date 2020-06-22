@@ -1,14 +1,9 @@
 import numpy as np
 from numpy import genfromtxt
 import matplotlib.pyplot as plt
-from scipy.spatial import ConvexHull
 import os
 import cv2
 import tensorflow as tf
-import pickle
-from tensorflow import keras
-from tensorflow.keras import layers
-import matplotlib as mpl
 
 IMG_SIZE_X = 128
 IMG_SIZE_Y = 256
@@ -53,7 +48,7 @@ test_fn_dir = "../data/boostnet_labeldata/labels/test/filenames.csv"
 X = create_test_im_datasets(test_im_dir, test_fn_dir, IMG_SIZE_X, IMG_SIZE_Y)
 
 
-model_vertebrae = tf.keras.models.load_model("G:/My Drive/GitHub/automatic-scoliosis-assessment/models/VertebraSegmentationNetwork-1585184318_beta0.7val0.15", compile=False)
+model_vertebrae = tf.keras.models.load_model("G:/My Drive/GitHub/automatic-scoliosis-assessment/models/VertebraSegmentationNetwork-1592842376", compile=False)
 model_vertebrae.compile(optimizer='adam', loss=tversky_loss, metrics=['accuracy'])
 Y_predicted = model_vertebrae.predict(X)
 
@@ -76,7 +71,7 @@ for j in range(128):
     count += 1
 plt.show()
 
-# ***** to save spineMasks
+# save spineMasks
 fn_dir = "../data/boostnet_labeldata/labels/test/filenames.csv"
 fn_data = genfromtxt(fn_dir, delimiter=',', dtype=str)
 for k in range(128):

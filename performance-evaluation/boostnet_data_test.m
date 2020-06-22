@@ -1,20 +1,22 @@
 clear
 close all
 
+addpath('..\clinical-assessment-algorithms');
+
 % directory of x-rays
-imdir = "C:\data\ScoliosisProject\BoostNet_datasets\boostnet_labeldata\data\test";
+imdir = "..\data\boostnet_labeldata\data\test";
 
 % directory of spineMasks
-maskdir = 'C:\data\ScoliosisProject\BoostNet_datasets\Predictions\SpineMasks\';
+maskdir = '..\data\PredictionsVsGroundTruth\SpineMasks\';
 files = dir(fullfile(maskdir, '*.jpg'));
 
 % read spreadsheet of filenames
-filenames = readmatrix('C:\data\ScoliosisProject\BoostNet_datasets\boostnet_labeldata\labels\test\filenames.csv', 'ExpectedNumVariables', 1, 'OutputType', 'string', 'Delimiter',',');
+filenames = readmatrix('..\data\boostnet_labeldata\labels\test\filenames.csv', 'ExpectedNumVariables', 1, 'OutputType', 'string', 'Delimiter',',');
 
-processedMaskDestinationDir = 'C:\data\ScoliosisProject\BoostNet_datasets\Predictions\SpineMasks_Processed\';
-endplatesDestinationDir = 'C:\data\ScoliosisProject\BoostNet_datasets\Predictions\Endplates\';
+processedMaskDestinationDir = '..\data\PredictionsVsGroundTruth\SpineMasks_Processed\';
+endplatesDestinationDir = '..\data\PredictionsVsGroundTruth\Endplates\';
 
-gtLandmarks = load('C:\data\ScoliosisProject\BoostNet_datasets\SpineWebFixedData\fixedTestingLandmarks.mat');
+gtLandmarks = load('..\data\FixedSpineWebData\fixedTestingLandmarks.mat');
 gtLandmarks = gtLandmarks.landmarks;
 
 numImages = size(filenames);
@@ -37,7 +39,7 @@ indicesToProcess = 1:numImages;
 plotting = false; % toggle this for plotting vs saving results
 if plotting
     plotcount = 1;
-    randomSample = randi(128, 1, 5); %[3 11 13 48];%[16 35 48 85 108 12 36 62 108];
+    randomSample = randi(128, 1, 5);
     indicesToProcess = randomSample;
     figure(1)
     sgtitle('Random Sample of Images & Corresponding Vertebral Segmentations')
@@ -116,7 +118,7 @@ for n = indicesToProcess
             gtEndplateSlopes(1,k) = (gtLandmarksScaled(landmarkPos+1,2) - gtLandmarksScaled(landmarkPos,2)) / (gtLandmarksScaled(landmarkPos+1,1) - gtLandmarksScaled(landmarkPos,1));
         end
         
-        alignedEndplateSlopes = TEST_alignSlopeVectors(gtEndplateSlopes, endplateSlopes);
+        alignedEndplateSlopes = alignSlopeVectors(gtEndplateSlopes, endplateSlopes);
         
         allEndplateSlopes(n,:) = rad2deg(atan(alignedEndplateSlopes));
         gtAllEndplateSlopes(n,:) = rad2deg(atan(gtEndplateSlopes));
@@ -258,17 +260,17 @@ end
 
 % write to csv file
 if ~plotting
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\EndplateSlopes.csv',allEndplateSlopes);
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\EndplateSlopes_gtlandmarks.csv',gtAllEndplateSlopes);
+    csvwrite('..\data\PredictionsVsGroundTruth\EndplateSlopes.csv',allEndplateSlopes);
+    csvwrite('..\data\PredictionsVsGroundTruth\EndplateSlopes_GroundTruthEndplates.csv',gtAllEndplateSlopes);
     
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\Angles.csv',allAngles);
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\Angles_gtlandmarks.csv',gtAllAngles);
+    csvwrite('..\data\PredictionsVsGroundTruth\Angles.csv',allAngles);
+    csvwrite('..\data\PredictionsVsGroundTruth\Angles_GroundTruthEndplates.csv',gtAllAngles);
     
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\LenkeCurveTypes.csv',allLenkeCurveTypes);
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\LenkeCurveTypes_gtlandmarks.csv',gtAllLenkeCurveTypes);
+    csvwrite('..\data\PredictionsVsGroundTruth\LenkeCurveTypes.csv',allLenkeCurveTypes);
+    csvwrite('..\data\PredictionsVsGroundTruth\LenkeCurveTypes_GroundTruthEndplates.csv',gtAllLenkeCurveTypes);
     
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\LenkeCurveTypeProbabilities.csv',allLenkeCurveTypeProbabilities);
-    csvwrite('C:\data\ScoliosisProject\BoostNet_datasets\Predictions\LenkeCurveTypeProbabilities_gtlandmarks.csv',gtAllLenkeCurveTypeProbabilities);
+    csvwrite('..\data\PredictionsVsGroundTruth\LenkeCurveTypeProbabilities.csv',allLenkeCurveTypeProbabilities);
+    csvwrite('..\data\PredictionsVsGroundTruth\LenkeCurveTypeProbabilities_GroundTruthEndplates.csv',gtAllLenkeCurveTypeProbabilities);
 end
 
 

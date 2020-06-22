@@ -102,20 +102,6 @@ cobbAngles(1) = abs(rad2deg(atan(superiorSlopes(angleLocations(1)))-atan(inferio
 cobbAngles(2) = abs(rad2deg(atan(superiorSlopes(angleLocations(2)))-atan(inferiorSlopes(angleLocations(3)))));
 cobbAngles(3) = abs(rad2deg(atan(superiorSlopes(angleLocations(3)))-atan(inferiorSlopes(angleLocations(4)))));
 
-% use signed angle?
-%{
-cobbAngles(1) = rad2deg(atan(superiorSlopes(angleLocations(1)))-atan(inferiorSlopes(angleLocations(2))));
-cobbAngles(2) = rad2deg(atan(superiorSlopes(angleLocations(2)))-atan(inferiorSlopes(angleLocations(3))));
-cobbAngles(3) = rad2deg(atan(superiorSlopes(angleLocations(3)))-atan(inferiorSlopes(angleLocations(4))));
-%}
-
-% more robust to use avg slope of endplates?
-%{
-cobbAngles(1) = abs(rad2deg(atan(midSlopes(angleLocations(1)))-atan(midSlopes(angleLocations(2)))));
-cobbAngles(2) = abs(rad2deg(atan(midSlopes(angleLocations(2)))-atan(midSlopes(angleLocations(3)))));
-cobbAngles(3) = abs(rad2deg(atan(midSlopes(angleLocations(3)))-atan(midSlopes(angleLocations(4)))));
-%}
-
 %%%%%%%%%%%%%%%%% return endplates used in calculation for plotting
 for k = 1:3
     landmarkPos = (angleLocations(k)-1)*2+1;

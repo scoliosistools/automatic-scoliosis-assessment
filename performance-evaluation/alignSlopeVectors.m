@@ -1,5 +1,5 @@
-function [predSlopesAligned] = TEST_alignSlopeVectors(gtSlopes,predSlopes)
-%TEST_ALIGNSLOPEVECTORS Summary of this function goes here
+function [predSlopesAligned] = alignSlopeVectors(gtSlopes,predSlopes)
+%ALIGNSLOPEVECTORS Summary of this function goes here
 %   Detailed explanation goes here
 
 gtLength = length(gtSlopes);

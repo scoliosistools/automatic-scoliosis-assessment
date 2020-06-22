@@ -1,19 +1,16 @@
 import numpy as np
-import scipy.io
 from numpy import genfromtxt
-import os
 import seaborn as sns
 from matplotlib import pyplot as plt
 import pingouin as pg
-import cv2
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score
 
 ########################################### Lenke curve type results
-gt_lenke_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/LenkeCurveTypes_gtlandmarks.csv"
+gt_lenke_dir = "../data/PredictionsVsGroundTruth/LenkeCurveTypes_GroundTruthEndplates.csv"
 gt_lenke_data = genfromtxt(gt_lenke_dir, delimiter=',')
 
-pred_lenke_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/LenkeCurveTypes.csv"
+pred_lenke_dir = "../data/PredictionsVsGroundTruth/LenkeCurveTypes.csv"
 pred_lenke_data = genfromtxt(pred_lenke_dir, delimiter=',')
 
 correct_lenke = np.zeros_like(gt_lenke_data)
@@ -37,10 +34,10 @@ kap = cohen_kappa_score(gt_lenke_data, pred_lenke_data)  # , weights='linear'?
 
 ######################################### Lenke curve type probabilities
 ########################################### Angle results
-gt_lenke_prob_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/LenkeCurveTypeProbabilities_gtlandmarks.csv"
+gt_lenke_prob_dir = "../data/PredictionsVsGroundTruth/LenkeCurveTypeProbabilities_GroundTruthEndplates.csv"
 gt_lenke_prob_data = genfromtxt(gt_lenke_prob_dir, delimiter=',')
 
-pred_lenke_prob_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/LenkeCurveTypeProbabilities.csv"
+pred_lenke_prob_dir = "../data/PredictionsVsGroundTruth/LenkeCurveTypeProbabilities.csv"
 pred_lenke_prob_data = genfromtxt(pred_lenke_prob_dir, delimiter=',')
 
 

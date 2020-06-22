@@ -1,18 +1,15 @@
 import numpy as np
-import scipy.io
 from numpy import genfromtxt
-import os
 import seaborn as sns
 from matplotlib import pyplot as plt
 import pingouin as pg
-import cv2
 import pandas as pd
 
 ########################################### Endplate results
-gt_slopes_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/EndplateSlopes_gtlandmarks.csv"
+gt_slopes_dir = "../data/PredictionsVsGroundTruth/EndplateSlopes_GroundTruthEndplates.csv"
 gt_slopes_data = genfromtxt(gt_slopes_dir, delimiter=',')
 
-pred_slopes_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/EndplateSlopes.csv"
+pred_slopes_dir = "../data/PredictionsVsGroundTruth/EndplateSlopes.csv"
 pred_slopes_data = genfromtxt(pred_slopes_dir, delimiter=',')
 
 slopesDiff = pred_slopes_data - gt_slopes_data

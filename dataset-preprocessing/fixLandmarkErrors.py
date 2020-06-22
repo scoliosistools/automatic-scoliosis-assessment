@@ -41,7 +41,7 @@ for i in range(lm.shape[0]):
     lm2.append(np.transpose(lm[i, :, :]))
 lm = np.array(lm2)
 
-# ################################## check fix
+# ################################## code to visualise landmarks errors and fixed landmarks
 # image = 3
 # fig = plt.figure()
 # plt.subplot(1, 3, 1)

@@ -1,18 +1,15 @@
 import numpy as np
-import scipy.io
 from numpy import genfromtxt
-import os
 import seaborn as sns
 from matplotlib import pyplot as plt
 import pingouin as pg
-import cv2
 import pandas as pd
 
 ########################################### Angle results
-gt_angle_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/Angles_gtlandmarks.csv"
+gt_angle_dir = "../data/PredictionsVsGroundTruth/Angles_GroundTruthEndplates.csv"
 gt_angle_data = genfromtxt(gt_angle_dir, delimiter=',')
 
-pred_angle_dir = "C:/data/ScoliosisProject/BoostNet_datasets/Predictions/Angles.csv"
+pred_angle_dir = "../data/PredictionsVsGroundTruth/Angles.csv"
 pred_angle_data = genfromtxt(pred_angle_dir, delimiter=',')
 
 AD = abs(gt_angle_data - pred_angle_data)
@@ -35,12 +32,6 @@ MD = np.mean(D)
 
 SD = np.std(D)
 
-# corr1 = pg.corr(pred_angle_data[:,0],gt_angle_data[:,0])
-# corr2 = pg.corr(pred_angle_data[:,1],gt_angle_data[:,1])
-# corr3 = pg.corr(pred_angle_data[:,2],gt_angle_data[:,2])
-#
-# corr = (corr1.r + corr2.r + corr3.r)/3
-############ Why different results when calculating this way?
 corr = pg.corr(pred_angle_data.reshape(-1),gt_angle_data.reshape(-1))
 print(corr.to_string())
 
