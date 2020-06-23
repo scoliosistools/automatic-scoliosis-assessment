@@ -1,3 +1,8 @@
+% script to test all functionality of the designed system using the boostnet data
+
+% toggle this for plotting a random sample vs saving results for all test data
+plotting = false;
+
 clear
 close all
 
@@ -36,7 +41,6 @@ gtAllLenkeCurveTypeProbabilities = zeros(numImages,6);
 
 indicesToProcess = 1:numImages;
 
-plotting = false; % toggle this for plotting vs saving results
 if plotting
     plotcount = 1;
     randomSample = randi(128, 1, 5);

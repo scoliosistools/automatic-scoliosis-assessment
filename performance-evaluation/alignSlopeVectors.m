@@ -1,6 +1,7 @@
 function [predSlopesAligned] = alignSlopeVectors(gtSlopes,predSlopes)
-%ALIGNSLOPEVECTORS Summary of this function goes here
-%   Detailed explanation goes here
+%ALIGNSLOPEVECTORS: function designed to align the predicted and
+%ground-truth endplate slopes for comparison, for cases where there are a 
+%different number of predicted endplates.
 
 gtLength = length(gtSlopes);
 diffLength = length(predSlopes) - length(gtSlopes);

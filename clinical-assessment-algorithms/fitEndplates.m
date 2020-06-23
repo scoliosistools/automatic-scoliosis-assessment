@@ -1,6 +1,6 @@
 function [endplateLandmarks, centroidsTop2Bottom] = fitEndplates(spineMask)
-%CALCULATEENDPLATESLOPES Summary of this function goes here
-%   Detailed explanation goes here
+%CALCULATEENDPLATESLOPES: fit endplates to a set of vertebral
+%segmentations.
 
 %imshow(spineMask)
 %hold on

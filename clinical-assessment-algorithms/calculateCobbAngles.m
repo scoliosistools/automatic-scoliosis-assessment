@@ -1,6 +1,6 @@
 function [cobbAngles, apicalVertebrae, angleLocations, cobbEndplates] = calculateCobbAngles(endplateLandmarks, centroids, angleLocations)
-%CALCULATECOBBANGLES Summary of this function goes here
-%   Detailed explanation goes here
+%CALCULATECOBBANGLES: calculate the PT, MT, and TL/L Cobb angles from a
+%given set of endplate landmarks.
 
 numLandmarks = length(endplateLandmarks);
 numVertebrae = numLandmarks/4;

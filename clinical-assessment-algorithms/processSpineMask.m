@@ -1,6 +1,6 @@
 function [spineMask] = processSpineMask(spineMask)
-%SPINEMASKPROCESSING Summary of this function goes here
-%   Detailed explanation goes here
+%SPINEMASKPROCESSING: post-processing to automatically remove errors in
+%predicted vertebral segmentation.
 
 spineMask = imbinarize(spineMask(:,:,1));
 numPixels = size(spineMask);

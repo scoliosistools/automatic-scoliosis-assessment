@@ -1,4 +1,5 @@
 import os
+from shutil import copy
 
 for path in {"../data/FixedSpineWebData", "../data/HiResVertebraeMasks", "../data/DataAugmentation/images",
              "../data/DataAugmentation/masks", "../data/PredictionsVsGroundTruth/SpineMasks",
@@ -13,3 +14,5 @@ for path in {"../data/FixedSpineWebData", "../data/HiResVertebraeMasks", "../dat
         print ("Creation of the directory %s failed" % path)
     else:
         print ("Successfully created the directory %s" % path)
+
+copy("../vertebra-segmentation-network/UNetTraining_Colab.ipynb", "G:/My Drive/GitHub/automatic-scoliosis-assessment/UNetTraining_Colab.ipynb")

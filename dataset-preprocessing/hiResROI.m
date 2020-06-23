@@ -1,4 +1,4 @@
-% converting landmarks to high resolution segmentations (ROI - region of interest)
+% converting vertebral corner landmarks to high resolution segmentations (ROI - region of interest)
 % first for the training dataset and then the testing dataset
 for DatabaseToProcess = 0:1
     if ~DatabaseToProcess % training dataset

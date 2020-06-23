@@ -1,17 +1,17 @@
 # automatic-scoliosis-assessment
 Automatic scoliosis assessment in spinal x-rays using deep learning and a novel vertebral segmentation dataset.
+
 **See ThesisReport.pdf & ThesisPresentation for an in-depth description of this project.**
 
-In order to run the code in this repo, you must first obtain SpineWeb Dataset 16 (http://spineweb.digitalimaginggroup.ca/spineweb/index.php?n=Main.Datasets#Dataset_16.3A_609_spinal_anterior-posterior_x-ray_images)
-Copy the 'boostnet_labeldata' folder into a new folder labelled 'data' in the root directory of the local repository after cloning.
+In order to run the code in this repository, you must first obtain SpineWeb Dataset 16 (http://spineweb.digitalimaginggroup.ca/spineweb/index.php?n=Main.Datasets#Dataset_16.3A_609_spinal_anterior-posterior_x-ray_images).
+Copy the 'boostnet_labeldata' folder into a new folder named 'data' in the root directory of the local repository after cloning.
 This 'automatic-scoliosis-assessment/data/' folder will be used for storing any additional data generated locally.
 
 Google Colab was used for training the U-Net in this project. The scripts have been designed to work with Google Drive File Stream for this purpose. By default, the scripts create and work out of the following Google Drive directory:
-'G:/My Drive/GitHub/automatic-scoliosis-assessment/'
-This can be adjusted if required.
+'G:/My Drive/GitHub/automatic-scoliosis-assessment/'. This can be adjusted if required.
 
 The following process outlines the steps required to preprocess the data, train the network, and test the algorithms for automatic assessment of scoliosis.
-This process can be adjusted as required, if using different data or if not using Google Colab and File Stream.
+This process can be adjusted as required (for example, if a different dataset is used or if not using Google Colab and File Stream).
 
 ## dataset-preprocessing
 1. Run 'createDirectories.py'. This will create the necessary folders in 'automatic-scoliosis-assessment/data/' for storage. This step only needs to be performed once.
@@ -28,5 +28,5 @@ This process can be adjusted as required, if using different data or if not usin
 5. Run 'UNetTesting.py' locally, adjusting the timestamp in line 51 to that of the of the trained network (visible in 'My Drive/GitHub/automatic-scoliosis-assessment/models/'). This script will save the network predictions for the testing data.
 
 ## performance-evaluation
-1. Run 'boostnet_data_test.m' in MATLAB. This script will generate and save the relevant clinical metrics from the predicted test-set segmentations using the developed functions in 'clinical-assessment-algorithms'. Note: Additionally, the 'plotting' variable can be toggled between 'true', in order to visually plot a random sample of test set performance.
-2. The scripts 'results_segmentation.py', 'results_endplates.py', 'results_cobb.py', and 'results_lenke.py', can be executed to generate various statistics, summarising performance of the system.
+1. Run 'boostnet_data_test.m' in MATLAB. This script will generate and save the relevant clinical metrics from the predicted test-set segmentations using the developed functions in '**clinical-assessment-algorithms**'. Note: Additionally, the 'plotting' variable can be toggled to 'true', in order to visually plot a random sample of test set performance.
+2. Run 'results_segmentation.py', 'results_endplates.py', 'results_cobb.py', and 'results_lenke.py' to generate various statistics, summarising performance of the system.

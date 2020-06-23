@@ -1,6 +1,6 @@
 function [curveType, curveTypeProbabilities] = classifyLenkeCurveType(cobbAngles)
-%CLASSIFYLENKECURVETYPE Summary of this function goes here
-%   Detailed explanation goes here
+%CLASSIFYLENKECURVETYPE: classify the Lenke curve type from a given set of
+%Cobb angles, and calculate the probability of each curve type.
 pt = cobbAngles(1);
 mt = cobbAngles(2);
 tl = cobbAngles(3);
