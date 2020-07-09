@@ -1,7 +1,7 @@
 # automatic-scoliosis-assessment
 Automatic scoliosis assessment in spinal x-rays using deep learning and a novel vertebral segmentation dataset.
 
-Publications resulting from any use of this material must cite this source.
+Publications resulting from any use of this material must cite https://www.scoliosistools.com/
 
 **Thesis Report & Presentation available on request, for an in-depth description of this project and any further information.**
 
