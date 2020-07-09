@@ -3,7 +3,7 @@ Automatic scoliosis assessment in spinal x-rays using deep learning and a novel 
 
 Publications resulting from any use of this material must cite this source.
 
-**See ThesisReport.pdf & ThesisPresentation.pdf for an in-depth description of this project and any further information.**
+**Thesis Report & Presentation available on request, for an in-depth description of this project and any further information.**
 
 ## Getting Started
 In order to run the code in this repository, you must first obtain SpineWeb Dataset 16 (http://spineweb.digitalimaginggroup.ca/spineweb/index.php?n=Main.Datasets#Dataset_16.3A_609_spinal_anterior-posterior_x-ray_images).
