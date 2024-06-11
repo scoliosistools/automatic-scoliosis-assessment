@@ -6,7 +6,7 @@ Publications resulting from any use of this material must cite https://www.scoli
 **Thesis Report & Presentation available on request, for an in-depth description of this project and any further information.**
 
 ## Getting Started
-In order to run the code in this repository, you must first obtain SpineWeb Dataset 16 (http://spineweb.digitalimaginggroup.ca/spineweb/index.php?n=Main.Datasets#Dataset_16.3A_609_spinal_anterior-posterior_x-ray_images).
+In order to run the code in this repository, you must first obtain SpineWeb Dataset 16 (http://spineweb.digitalimaginggroup.ca/Index.php?n=Main.Datasets#Dataset_16.3A_609_spinal_anterior-posterior_x-ray_images).
 Copy the 'boostnet_labeldata' folder into a new folder named 'data' in the root directory of the local repository after cloning.
 This 'automatic-scoliosis-assessment/data/' folder will be used for storing any additional data generated locally.
 
